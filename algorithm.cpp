@@ -12,12 +12,12 @@ double random(int ,int);
 
 int main()
 {
-	double xs[5] = {-10,10,-10,10,0};
+    double xs[5] = {-10,10,-10,10,0};
     double ys[5] = {10,10,-10,-10,0};
     double zs[5] = {3,3,3,3,0};
-	double surface[N*N] = {0};
+    double surface[N*N] = {0};
 	
-	get_surface(xs,ys,zs,surface);
+    get_surface(xs,ys,zs,surface);
 	
     for(int i=0;i<256;i++)
     {
@@ -34,10 +34,10 @@ int main()
 void get_surface(double xs[],double ys[],double zs[],double surface[])
 {
        
- 	int n = 5;   
-	double tmp[n] = {0};
-	
-	double sigma_x1 = arr_sum(xs,n);
+    int n = 5;   
+    double tmp[n] = {0};
+
+    double sigma_x1 = arr_sum(xs,n);
     double sigma_y1 = arr_sum(ys,n);
     double sigma_z1 = arr_sum(zs,5); 
 
@@ -57,7 +57,7 @@ void get_surface(double xs[],double ys[],double zs[],double surface[])
 	double sigma_y2 = arr_sum(tmp,n);
 	
 
-    //sigma_x3 
+   	//sigma_x3 
 	for(int i=0;i<n;i++)	
 	{
 		tmp[i] = pow(xs[i],3);
@@ -65,7 +65,7 @@ void get_surface(double xs[],double ys[],double zs[],double surface[])
 	double sigma_x3 = arr_sum(tmp,n);
 
 
-    //sigma_y3 
+    	//sigma_y3 
 	for(int i=0;i<n;i++)	
 	{
 		tmp[i] = pow(ys[i],3);
@@ -193,7 +193,7 @@ void get_surface(double xs[],double ys[],double zs[],double surface[])
     gauss(a, b, t, 6);
     
 	/*
-    printf("Ôö¹ã¾ØÕó\n");
+    printf("å¢žå¹¿çŸ©é˜µ\n");
     for (int i = 0; i < 6; i++) {
         for (int j = 0; j < 6; j++) {
             printf("%f\t", a[i * 6 + j]);
@@ -203,13 +203,13 @@ void get_surface(double xs[],double ys[],double zs[],double surface[])
     
     printf("\n");
     
-    printf("½âÏòÁ¿\n");
+    printf("è§£å‘é‡\n");
     for (int i = 0; i < 6; i++)
         printf("%f\t", t[i]);
     printf("\n\n");
     */
     
-    //Éú³É´Ö²ÚÇúÃæ
+    //ç”Ÿæˆç²—ç³™æ›²é¢
 	double p[256] = {0};
 	double q[256] = {0};  
     for(int i=0;i<256;i++)
@@ -227,7 +227,7 @@ void get_surface(double xs[],double ys[],double zs[],double surface[])
 		}
 	}
     
-    //¼ÓÈë°¼Í¹Ëã×Ó
+    //åŠ å…¥å‡¹å‡¸ç®—å­
 	for(int num=0;num<100;num++)
 	{
     	int size  = random(10,30);
@@ -237,7 +237,7 @@ void get_surface(double xs[],double ys[],double zs[],double surface[])
 		{
 			patch[i] = 1;
 		}
-		//Éú³É°¼Í¹¿é 
+		//ç”Ÿæˆå‡¹å‡¸å— 
 		for(int i=0;i<size;i++)
 		{
 			for(int j=0;j<size;j++)
@@ -272,7 +272,7 @@ void get_surface(double xs[],double ys[],double zs[],double surface[])
     	printf("start_x:%d\n",start_x);
     	printf("start_y:%d\n",start_y);
     	*/
-    	//¼ÓÈë°¼Í¹¿é 
+    	//åŠ å…¥å‡¹å‡¸å— 
     	for(int i=0;i<size;i++)
     	{
     		for(int j=0;j<size;j++)
@@ -303,39 +303,39 @@ double arr_sum(double xs[],int n)
 	return res;
 }
 
-void gauss(double a[], double b[], double x[], int n)//ÁÐÖ÷Ôª¸ßË¹ÏûÈ¥·¨£¬a[]ÏµÊý¾ØÕó£¬b[]½á¹ûÏòÁ¿£¬x[]½âÏòÁ¿£¬n½×Êý
+void gauss(double a[], double b[], double x[], int n)//åˆ—ä¸»å…ƒé«˜æ–¯æ¶ˆåŽ»æ³•ï¼Œa[]ç³»æ•°çŸ©é˜µï¼Œb[]ç»“æžœå‘é‡ï¼Œx[]è§£å‘é‡ï¼Œné˜¶æ•°
 {
     int i, j, k, exchangeline, exchangeflag = 0;
     double temp, max;
 
-    for (k = 0; k < n - 1; k++) { //kµü´ú´ÎÊý
+    for (k = 0; k < n - 1; k++) { //kè¿­ä»£æ¬¡æ•°
         max = a[k * n + k];
-        for (i = k + 1; i < n; i++) { //Ñ°ÕÒÖ÷Ôª£¬iÐÐºÅ
+        for (i = k + 1; i < n; i++) { //å¯»æ‰¾ä¸»å…ƒï¼Œiè¡Œå·
             if (fabs(max) < fabs(a[n * i + k])) {
                 max          = a[n * i + k];
-                exchangeflag = 1;     //½»»»±êÖ¾
-                exchangeline = n * i; //¼ÇÂ¼ÐèÒª½»»»µÄÐÐºÅ
+                exchangeflag = 1;     //äº¤æ¢æ ‡å¿—
+                exchangeline = n * i; //è®°å½•éœ€è¦äº¤æ¢çš„è¡Œå·
             }
         }
-        if (exchangeflag) { //»»ÐÐ£¬jÁÐºÅ
+        if (exchangeflag) { //æ¢è¡Œï¼Œjåˆ—å·
             for (j = 0; j < n; j++) {
-                temp                = a[exchangeline + j]; //¶ÔÏµÊý¾ØÕó²Ù×÷
-                a[exchangeline + j] = a[k * n + j];
+                temp                = a[exchangeline + j]; //å¯¹ç³»æ•°çŸ©é˜µæ“ä½œ
+                a[exchangeline + j] = a[k * n + j];https://github.com/Reyyyyyy/Simulation-surface-generating-program-based-on-C-and-Python/blob/main/algorithm.cpp
                 a[k * n + j]        = temp;
             }
-            temp                = b[exchangeline / n]; //¶Ô½á¹ûÏòÁ¿²Ù×÷
+            temp                = b[exchangeline / n]; //å¯¹ç»“æžœå‘é‡æ“ä½œ
             b[exchangeline / n] = b[k];
             b[k]                = temp;
-            exchangeflag        = 0; //Çå³ý½»»»±êÖ¾
+            exchangeflag        = 0; //æ¸…é™¤äº¤æ¢æ ‡å¿—
         }
-        for (i = k + 1; i < n; i++) { //ÏûÔª
+        for (i = k + 1; i < n; i++) { //æ¶ˆå…ƒ
             temp = a[i * n + k] / a[k * n + k];
-            b[i] = b[i] - b[k] * temp; //¶Ô½á¹ûÏòÁ¿²Ù×÷
+            b[i] = b[i] - b[k] * temp; //å¯¹ç»“æžœå‘é‡æ“ä½œ
             for (j = k; j < n; j++)
-                a[i * n + j] = a[i * n + j] - a[k * n + j] * temp; //¶ÔÏµÊý¾ØÕó²Ù×÷
+                a[i * n + j] = a[i * n + j] - a[k * n + j] * temp; //å¯¹ç³»æ•°çŸ©é˜µæ“ä½œ
         }
     }
-    for (i = n - 1; i > -1; i--) { //»Ø´ú
+    for (i = n - 1; i > -1; i--) { //å›žä»£
         temp = b[i];
         for (j = n - 1; j > i; j--)
             temp = temp - a[n * i + j] * x[j];
